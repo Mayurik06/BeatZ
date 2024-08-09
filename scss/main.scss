@@ -1,0 +1,420 @@
+@import "../scss/vendor";
+@import "../scss/var";
+@import "../scss/mixin";
+
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  background-color: $main-color;
+  color: $text-color;
+  position: relative;
+}
+p {
+  margin: 0;
+}
+a,
+a:hover {
+  text-decoration: none;
+}
+
+.main_header {
+  width: 100%;
+  line-height: $header-height;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))
+    $main-color;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+
+  & .navbar-brand {
+    color: $text-color;
+    animation: music 1s linear infinite;
+    animation-direction: alternate;
+    font-size: 4rem;
+    font-weight: 800;
+    & .fas {
+      font-size: 4rem;
+    }
+    @keyframes music {
+      from {
+        transform: rotate(5deg);
+      }
+      to {
+        transform: rotate(-5deg);
+      }
+    }
+
+    &:hover {
+      filter: drop-shadow(0 1.5rem 1rem rgba(255, 255, 255, 0.5));
+    }
+  }
+
+  & .navbar-nav {
+    padding-left: 15rem;
+
+    & .nav-item .nav-link {
+      font-size: 1.6rem;
+      color: $text-color;
+      text-transform: uppercase;
+      padding-right: 3rem;
+    }
+
+    & .nav-item:last-child > .nav-link {
+      padding-right: 0%;
+    }
+  }
+  & .nav-item:hover > .nav-link,
+  & .navbar-brand:hover,
+  & .navbar-brand:hover > .fas {
+    color: $primary-color;
+  }
+
+  & .my-btn {
+    @include mybtn;
+
+    &:hover {
+      @include hovereffects;
+    }
+  }
+}
+
+// out main hero part
+
+.header_hero {
+  width: 100%;
+  height: 88vh;
+  margin-top: 10rem;
+
+  & .header_hero_text {
+    width: 100%;
+    height: 80vh;
+    @include content_center(flex-start);
+  }
+
+  & h2 {
+    font-size: 7rem;
+    margin-bottom: 3rem;
+    line-height: 150%;
+    font-weight: 600;
+
+    & span {
+      color: $primary-color;
+      text-transform: capitalize;
+    }
+  }
+
+  & p {
+    font-size: 1.8rem;
+    color: $text-color;
+    margin-bottom: 5rem;
+  }
+
+  & .header_text_btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+
+    & a {
+      @include mybtn;
+
+      &:hover {
+        @include hovereffects;
+      }
+    }
+
+    & #btn_2 {
+      margin-left: 2rem;
+      background-color: rgba(255, 255, 255, 0.5);
+
+      &:hover {
+        @include hovereffects;
+      }
+    }
+  }
+
+  //images part
+  &_image {
+    height: 70vh;
+    // background:black;
+    @include content-center(flex-end);
+    animation: anime-hero 10s linear infinite alternate;
+
+    @keyframes anime-hero {
+      from {
+        transform: scale(0.9);
+      }
+      to {
+        transform: scale(1);
+      }
+    }
+    & img {
+      height: 100%;
+      filter: drop-shadow(0 1.5rem 1rem rgba(0, 0, 0, 0.5));
+    }
+  }
+}
+
+//Preminum-header
+.premium_header {
+  background: $main-color;
+
+  & .premimum_header_content {
+    @include content-center(center);
+    color: $text-color;
+
+    & .premium_header_heading {
+      text-align: center;
+      width: 60%;
+      margin-bottom: 2rem;
+
+      & .heading-one {
+        @include headings;
+      }
+      & .heading-two {
+        font-size: 2.5rem;
+      }
+    }
+    & .premium_table_area {
+      font-size: 1.8rem;
+      width: 60%;
+
+      & table {
+        color: $text-color;
+        text-align: center;
+      }
+      & tr td,
+      th {
+        padding: 3rem;
+      }
+    }
+  }
+
+  .premium_table_area .premimum-table tr th,
+  .premium_table_area .premimum-table tr td {
+    padding: 1.5rem;
+  }
+}
+
+//offer header
+.offer_header {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  & .offer-heading {
+    text-align: center;
+
+    & .heading-one {
+      @include headings;
+    }
+    & .heading-two {
+      font-size: 2.5rem;
+    }
+  }
+
+  & .offer_cards_area {
+    border-radius: 1.5rem;
+    margin-top: 5rem;
+
+    & .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 4rem;
+
+      & .cards {
+        position: relative;
+        background-color: $card-background-color;
+        padding: 2rem;
+        border-radius: 1.5rem;
+
+        & .fixed-time {
+          position: absolute;
+          top: 0;
+          left: 0;
+          padding: 0.7rem 0.7rem;
+          border-radius: 1.5rem 0 1.5rem 0;
+          background-color: $card-color;
+
+          & p {
+            font-size: 1.2rem;
+            color: $card-text-color;
+            font-weight: bold;
+          }
+        }
+        & .offer-deatils {
+          margin-top: 2rem;
+          border-bottom: 1px solid rgb(177, 176, 180);
+          padding-bottom: 2rem;
+          margin-bottom: 2rem;
+
+          & .offer-type {
+            font-size: 2rem;
+            font-weight: 600;
+          }
+          & .offer-name {
+            font-size: 3rem;
+            font-weight: 600;
+            color: $card-color;
+          }
+          & .offer-validity {
+            font-size: 1.6rem;
+            font-weight: bold;
+          }
+          & .price {
+            font-size: 1.4rem;
+            color: rgb(177, 176, 180);
+          }
+        }
+        & .more-info ul li {
+          font-size: 1.4rem;
+          font-weight: 400;
+        }
+        & .more-info .button-container {
+          text-align: center;
+          margin-top: 2rem;
+
+          & button {
+            @include mybtn;
+            background-color: $card-color;
+            margin-bottom: 2rem;
+            color: $card-text-color;
+
+            &:hover {
+              @include hovereffects;
+            }
+          }
+          & p {
+            color: rgb(177, 176, 180);
+
+            & span {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//Audiobooks
+
+.audio_header {
+  margin-bottom: 10rem;
+  @include content-center(center);
+
+
+  & .audio-info {
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+
+    & .heading {
+      @include headings;
+      color: $audio-color;
+    }
+
+    & .price {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    & .para {
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+    & button {
+      @include mybtn;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      background-color: $audio-color;
+      color: $card-text-color;
+
+      &:hover {
+        @include hovereffects;
+      }
+    }
+
+    & .small_para {
+      color: rgb(177, 176, 180);
+
+      & span {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+//footer
+.footer_header{
+    width: 100%;
+    line-height: $header-height;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))
+      $main-color;
+
+      & .foot-flex{
+@include content-flex(space-between,center);
+
+& .logo-container p{
+    font-size: 4rem;
+    font-weight: 800;
+}
+& .copyright-container p{
+    font-size: 1.8rem;
+
+}
+      }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 55%;
+  }
+
+  .main_header {
+    line-height: 5rem;
+    text-align: center;
+    padding: 0.2rem;
+
+    & .navbar-nav {
+      padding-right: 3rem;
+
+      & .nav-item .nav-link {
+        padding-right: 0%;
+      }
+    }
+
+    & .navbar .navbar-toggler {
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  .header_hero_text .header_text_btn {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .header_hero_text .header_text_btn a {
+    display: block;
+
+    text-align: center;
+  }
+  .header_hero_text .header_text_btn #btn_2 {
+    margin-top: 2rem;
+    margin-left: 0%;
+  }
+
+  .header_hero_image {
+    display: none;
+  }
+
+  .offer_header .whole-offer-container .offer_cards_area .card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
